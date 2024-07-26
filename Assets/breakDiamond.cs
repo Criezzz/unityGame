@@ -1,9 +1,12 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class NewBehaviourScript : MonoBehaviour
 {
+    public SceneManger manager; 
+
     // Start is called before the first frame update
     void Start()
     {
@@ -14,9 +17,12 @@ public class NewBehaviourScript : MonoBehaviour
     void Update()
     {
         
+        
+        
     }
     private void OnCollisionEnter2D(Collision2D other)
     {
-            Time.timeScale = 0;
+        manager.showUi();
+            
     }
 }

@@ -10,10 +10,10 @@ public class SceneManger : MonoBehaviour
     public static SceneManger instance;
     public GameObject ui;
     public GameObject cs;
-    public Button btn;
+    //public GameObject timer;
     public string scene;
     public bool ig;
-
+    public Timer t;
     private void Awake()
     {
         ig = false;
@@ -28,9 +28,10 @@ public class SceneManger : MonoBehaviour
 
     }
     // Start is called before the first frame update
+    
     void Start()
     {
-
+        
     }
 
     // Update is called once per frame
@@ -42,24 +43,27 @@ public class SceneManger : MonoBehaviour
         }
         else
         {
-
+            
         }
     }
     public void showUi()
     {
-        cs.GetComponent<cursorTracking>().enabled = false;
+        cs.SetActive(false);
         ig = false;
         Cursor.visible = true;
+        cs.GetComponent<BoxCollider2D>().enabled = false;
         Time.timeScale = 0;
         ui.SetActive(true);
+        t.resetTime();
     }
     public void startGame() {
         Time.timeScale = 1;
-        Cursor.visible = false;
-        Mouse.current.WarpCursorPosition(Camera.main.ScreenToWorldPoint(Input.mousePosition));
-        Debug.Log("WARP");
-        cs.GetComponent<cursorTracking>().enabled = true;
-        ui.SetActive(false);
         ig = true;
+        Cursor.visible = false;
+        cs.SetActive(true);
+        Cursor.lockState = CursorLockMode.Confined;
+        ui.SetActive(false);
+        Mouse.current.WarpCursorPosition(Input.mousePosition);
+        SceneManager.LoadScene(scene);
     }
 }

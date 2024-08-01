@@ -17,4 +17,13 @@ public class Timer : MonoBehaviour
         float sec = Mathf.RoundToInt(t % 60);
         timer.text = string.Format("{0,00}:{1,00}", min, sec);
     }
+    public float getTime()
+    {
+        return t;
+    }
+    public void resetTime()
+    {
+        t = 0;
+    }
 }
+

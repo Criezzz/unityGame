@@ -14,13 +14,13 @@ public class cursorTracking : MonoBehaviour
     
     [SerializeField] private Vector3 mousePos;
     Rigidbody2D rg;
-    
+
     // Start is called before the first frame update
     void Start()
         
     {
-        Cursor.lockState = CursorLockMode.Confined;
         rg = GetComponent<Rigidbody2D>();
+        
     }
 
     void Update()

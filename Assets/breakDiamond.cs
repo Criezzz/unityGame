@@ -5,8 +5,8 @@ using UnityEngine;
 
 public class NewBehaviourScript : MonoBehaviour
 {
-    public SceneManger manager; 
-
+    public SceneManger manager;
+    public GameObject mouse;
     // Start is called before the first frame update
     void Start()
     {
@@ -24,5 +24,11 @@ public class NewBehaviourScript : MonoBehaviour
     {
         manager.showUi();
             
+    }
+    private void OnCollisionExit2D(Collision2D other)
+    {
+        if (other.gameObject.CompareTag("mouse")){
+            mouse.GetComponent<BoxCollider2D>().enabled = true;
+        }
     }
 }

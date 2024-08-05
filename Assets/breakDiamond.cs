@@ -22,13 +22,9 @@ public class NewBehaviourScript : MonoBehaviour
     }
     private void OnCollisionEnter2D(Collision2D other)
     {
-        manager.showUi();
-            
+        //manager.showUi();
+        manager.ig = false;
+        
     }
-    private void OnCollisionExit2D(Collision2D other)
-    {
-        if (other.gameObject.CompareTag("mouse")){
-            mouse.GetComponent<BoxCollider2D>().enabled = true;
-        }
-    }
+    
 }

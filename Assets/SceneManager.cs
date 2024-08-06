@@ -21,7 +21,7 @@ public class SceneManger : MonoBehaviour
     private void Awake()
     {
         ig = true;
-        InvokeRepeating("spawn", 3, 5);
+        InvokeRepeating("spawn", 3, 3);
         if (instance == null)
         {
             instance = this;

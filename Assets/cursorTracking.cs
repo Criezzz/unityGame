@@ -10,7 +10,7 @@ using UnityEngine.InputSystem;
 public class cursorTracking : MonoBehaviour
 {
     public SceneManger manager;
-    public float speed = 300f;
+    public float speed = 100f;
     
     [SerializeField] private Vector3 mousePos;
     Rigidbody2D rg;
@@ -33,8 +33,9 @@ public class cursorTracking : MonoBehaviour
 
     void FixedUpdate()
     {
+        
         Vector2 direction = (mousePos - transform.position);
-        rg.velocity = direction * Time.deltaTime * speed;
+        rg.velocity = direction * Time.fixedDeltaTime * speed;
 
     }
 }

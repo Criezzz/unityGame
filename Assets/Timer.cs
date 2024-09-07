@@ -13,8 +13,8 @@ public class Timer : MonoBehaviour
     void Update()
     {
         t += Time.deltaTime;
-        float min = Mathf.RoundToInt(t / 60);
-        float sec = Mathf.RoundToInt(t % 60);
+        float min = Mathf.FloorToInt(t / 60);
+        float sec = Mathf.FloorToInt(t % 60);
         timer.text = string.Format("{0,00}:{1,00}", min, sec);
     }
     public float getTime()
